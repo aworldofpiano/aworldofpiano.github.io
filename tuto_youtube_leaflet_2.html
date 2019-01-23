@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Tuto Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
+
+    <style>
+        @font-face{
+            font-family:'quicksand';
+            src: url('quicksand.eot');
+            src:url('quicksand.tt') format('truetype'),
+                url('quicksand.svg#Quicksandbold') format('svg'),
+                url('quicksand.woff') format('woff')
+        }
+        
+    .uiheader{color:rgb(61, 10, 10);text-align:center;font-size:500%;font-family:'quicksand', sans-serif;font-weight:bolder;margin-bottom:0%;}
+    .uiheader2{text-align:center;font-family:'quicksand';font-size:200%;margin-top:0%;font-weight:300;}
+    body{background-color:rgb(197, 199, 255); }
+    .carte{width:90%;height:750px;margin-left:auto;margin-right:auto;border:solid 5px rgb(17, 12, 54); }
+    </style>
+    <script type="text/javascript" src="jhttps://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+
+
+    <div class="uicontainer">
+        <div class="titre">
+            <h1 class='uiheader'>Le monde en piano</h1>
+            <h2 class='uiheader2'> Ou jouer du piano librement ?</h2>
+
+        </div>
+
+    
+
+        <div id="mapid" div class="carte"> </div>
+
+        <script>
+            /*
+                VERSION: 3
+
+                 ( dernière modif : paul)
+
+            window.onload = function () {
+
+                console.log('page chargée');
+                var mymap = L.map('mapid').setView([46.342124, 2.603033], 5);
+
+                var tileStreets = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    maxZoom: 18,
+                    id: 'mapbox.streets',
+                    accessToken: 'pk.eyJ1IjoibGFpc3NlcGF1bCIsImEiOiJjam5ocTByd2gwZjU2M3BvM3R5NndidThkIn0.DZIEmZkAfnn7s3fTWv0JHA'
+                }).addTo(mymap)
+                var popup = L.popup();
+                var marker = L.marker([45.8, 58.5]).addTo(mymap);
+
+
+
+                /*
+                J'ai mis toutes mes coordonnées dans le tableau. ça s'affiche bien, mais du coup comment rattacher un popup 
+                avec le nom du lieu comme j'avais fait avec toutes mes variables ? Il faudrait que chaque point ai un id non ?*/
+                [
+                    [45.748556, 4.826008],
+                    [45.760635, 4.861607],
+                    [45.746671, 4.826623],
+                    [45.779974, 4.849042],
+                    [43.604916, 3.880982],
+                    [43.611542, 1.454247],
+                    [43.630054, 1.373720],
+                    [44.826642, -0.555606],
+                    [47.389332, 0.694518],
+                    [48.103559, -1.672127],
+                    [48.844583, 2.375214],
+                    [48.841376, 2.320869],
+                    [49.010017, 2.548095],
+                    [48.689979, 6.175027],
+                ].forEach(coordinates => {
+                    var markerCreatedAtPageLoad = L.marker(coordinates).addTo(mymap);
+                })
+                
+/*
+                var marker1 = L.marker([45.748556, 4.826008]).addTo(mymap);
+                marker.bindPopup("<b>Gare de Lyon Perrache</b>");
+                var marker2 = L.marker([45.760635, 4.861607]).addTo(mymap);
+                marker.bindPopup("<b>Gare de Lyon Part-Dieu</b>");
+                var marker3 = L.marker([45.746671, 4.826623]).addTo(mymap);
+                marker.bindPopup("<b>Université Catholique de Lyon</b><br>Campus Saint-Paul</br>");
+                var marker4 = L.marker([45.779974, 4.849042]).addTo(mymap);
+                marker.bindPopup("<b>Parc de la Tête D'Or</b>");
+                var marker5 = L.marker([43.604916, 3.880982]).addTo(mymap);
+                marker.bindPopup("<b>Gare de Montpellier Saint-Roch</b>");
+                var marker6 = L.marker([43.611542, 1.454247]).addTo(mymap);
+                marker.bindPopup("<b>Gare de Toulouse Matabiau</b>");
+                var marker7 = L.marker([43.630054, 1.373720]).addTo(mymap);
+                marker.bindPopup("<b>Aéroport Toulouse-Blagnac</b>");
+                var marker8 = L.marker([44.826642, -0.555606]).addTo(mymap);
+                marker.bindPopup("<b>Gare de Bordeaux Saint-Jean</b>");
+                var marker9 = L.marker([47.389332, 0.694518]).addTo(mymap);
+                marker.bindPopup("<b>Gare de Tours</b>");
+                var marker10 = L.marker([48.103559, -1.672127]).addTo(mymap);
+                marker.bindPopup("<b>Gare de Rennes</b>");
+                var marker11 = L.marker([48.844583, 2.375214]).addTo(mymap);
+                marker.bindPopup("<b>Paris - Gare de Lyon</b>");
+                var marker12 = L.marker([48.841376, 2.320869]).addTo(mymap);
+                marker.bindPopup("<b>Paris - Gare Montparnasse</b>");
+                var marker13 = L.marker([49.010017, 2.548095]).addTo(mymap);
+                marker.bindPopup("<b>Aéroport Paris-Charles de Gaulle</b>");
+                var marker14 = L.marker([48.689979, 6.175027]).addTo(mymap);
+                marker.bindPopup("<b>Gare de Nancy</b><div> <img style='width:100%'' src='https://i.ytimg.com/vi/HD406tsdOuE/hqdefault.jpg', alt = 'image'/></div>",
+                    { minWidth: 256 }
+                );
+
+
+                /*
+                    A chaque clique on ajoute un nouveau marker, et on le stocke dans le tableau "markersCreatedByClick"
+                    comme ça on pourra éventuellement les modifier ou supprimer plus tard. 
+                    
+                    --> Yes, mais comment reconnaitre quel marqueur est
+                    quelle ligne du tableau, à part en cherchant au hasard les coordonnées sur g.maps ?
+                */
+                const markersCreatedByClick = [];
+                function onMapClick(e) {
+                    console.log('Map clicked at ', e.latlng);
+                    const markerCreatedByClick = L.marker([e.latlng.lat, e.latlng.lng]).addTo(mymap);
+                    // On créé un popup à chaque fois et on l'ajoute à la map mymap. 
+
+                    //--> Ok cool, mais moi ce que je voudrais c'est que l'utilisateur, après le click,
+                     // puisse écrire ce qu'il veut dedans (le nom du lieu ou y'a le piano) et que le marqueur reste définitivement.
+                     // Dans l'idéal, l'utilisateur devrait même s'inscrire avant de pouvoir rajouter des marqueurs,
+                     //et une fois le marqueur créé, il pourrait rentrer le nom du lieu, une note /5 du piano et un commentaire.
+                     //Mais bon à voir.
+                    var popup = L.popup()
+                        .setLatLng(e.latlng)
+                        .setContent('You clicked at [' + e.latlng.lat.toString().substr(0, 6) + ',' + e.latlng.lng.toString().substr(0, 6) + ']')
+                        .openOn(mymap);
+
+                    markersCreatedByClick.push(markerCreatedByClick);
+                }
+
+                mymap.on('click', onMapClick);
+
+            }
+
+
+        </script>
+
+
+    </div>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>

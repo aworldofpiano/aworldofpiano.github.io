@@ -1,0 +1,1552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+
+
+<head>
+
+        
+        
+
+    <meta charset='utf-8' />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>Le monde en piano</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
+    <link rel="stylesheet" href="leaflet-search.css" />
+    <script src="leaflet-search.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Thasadith" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Neucha|Raleway|Yrsa|Zilla+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed|Lora|Open+Sans+Condensed:300|PT+Serif|Thasadith" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+
+    <script src="https://unpkg.com/parse/dist/parse.min.js"></script>
+
+ 
+
+        
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+    <script src="semantic/semantic.min.js"></script>
+    <script src="jquery_projet_piano.js"></script>
+
+    
+
+    
+
+    
+
+
+    <style>
+
+        body {
+            background-color: rgb(186, 199, 212);
+            font-family: 'Quicksand', sans-serif;
+            
+            
+        }
+
+        .modal {
+            z-index: 10000
+        }
+
+        .modal-content {
+            min-height: 200px;
+            PADDING: 10px;
+            background: #fafafa;
+        }
+
+        .uiheader {
+            font-size:90px;
+            color: rgb(11, 7, 44);
+            text-align:right;
+            font-family: 'Kalam', sans-serif;
+            font-weight: bolder;
+            width:80%;
+            
+        }
+
+        .uiheader2 {
+           
+            font-family: 'QUicksand', 'sans-serif';
+            font-size: 30px;
+            margin-bottom:2% !important;
+            font-weight: 300;
+            display: block;
+            text-align: center;
+            margin-top:-1%;
+            max-width:70%;
+            margin-left:auto;
+            margin-right:auto;
+            
+            
+        }
+
+        .carte {
+            width: 90%;
+            height: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            border: solid 5px rgb(17, 12, 54);
+            
+        }
+
+        .rating {
+            display: flex;
+            justify-content: space-between;
+            padding-right:2%;
+        }
+        .rating a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 2em;
+            transition: color .4s;
+            float:right;
+            position:relative;
+        
+        }
+        .rating a:hover,
+        .rating a:focus,
+        .rating a:hover~a,
+        .rating a:focus~a {
+            color: rgb(255, 240, 28);
+            cursor: pointer;
+        }
+        .toggle-button{background-color:rgb(163, 162, 173);
+        font-weight: 500;
+        
+        }
+
+        .activated{background-color:rgb(51, 197, 51);opacity:0.5;}
+        .header3{font-size:180%;
+     
+        
+        padding-bottom:-2%;
+        }
+      
+
+        .ajouter{
+        padding-left : 6%;
+        padding-right: 6%;
+        padding-top:2%;
+        padding-bottom:3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        
+        }
+        .hidden{display:none;}
+        .buttons {
+        padding-top:1%;
+        padding-left : 1%;
+        padding-right: 1% ;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items: center;
+        max-width:95%; 
+        margin-right:auto;
+        margin-left:auto; 
+        }
+        .login{
+            margin-right:0% !important;
+        }
+        .password-forgotten{margin-bottom:3%; margin-top:3%}
+        .yes{margin-left:45%;
+        margin-right:auto;
+        margin-top:-4%;
+        font-style:italic;
+        }
+        .signin{
+        color : rgb(39, 35, 35);
+        font-size : 130%;
+        pointer-events: none;
+        }
+
+        .active{
+        display: inline;
+        }
+        .icon{
+            display:flex;
+            
+        }
+
+        .bottom{
+          background-color:  rgb(197, 199, 255)
+        }
+
+        .framboise{
+            display:inherit;
+            z-index:50000000000000;
+        }
+        .custom{
+            color:green
+        }
+        
+        .leaflet-popup {
+            margin-right: 17px;
+            min-width:150px;
+            min-height:100px;
+            font-size:125%;
+            font-weight:600;
+            font-family:'quicksand',sans-serif;
+            color:rgb(71, 42, 214);
+        }
+        .header13{
+        
+            color:rgb(54, 31, 31);
+            text-align: center;
+
+        }
+
+       
+        .popup-button{
+            display:block;
+            margin:auto;
+        }
+        .bulma-card{
+            max-width: 20%;
+            min-height: 150px;
+            z-index:50000000;
+            margin:auto;
+            display:block;
+        }
+
+        .sidebar{
+            position: fixed;
+            top: 51px;
+            bottom: 0;
+            left: 0;
+            display: block;
+            padding: 20px;
+            overflow-x: hidden;
+            overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+            border-right: 1px solid #eee;
+            color:#fafafa !important;
+            background:rgb(28, 26, 34) !important;
+        
+        }
+        .sidebar .text{
+
+            color:rgb(188, 182, 199) !important;
+        }
+
+        .sidebar .metadata{
+            color:rgb(119, 113, 128) !important;
+        }
+        .sidebar .author{
+            color:rgb(228, 222, 236) !important;
+        }
+        .sidebar .title{
+            color:rgb(140, 135, 170) !important;
+            font-size:larger !important;
+        }
+
+        .sidebar-header{
+            text-shadow:rgb(12, 2, 34) 0.5px 0.5px 0.5px;
+            font-family:'quicksand',sans-serif;
+            color: rgb(226, 226, 226);
+            text-align: center;
+            font-size: 200%;
+            margin-bottom:7%;
+            font-weight:650;
+
+        }
+        .sidebar-description{
+
+            font-family:'quicksand',sans-serif;
+            color: rgb(221, 221, 221) !important;
+            font-size: 100%;
+            margin-bottom:40%;
+        }
+
+        .rater-number{
+            display:inline;
+
+        }
+
+        .rating-container{
+            margin-top: 50px !important;
+            color: rgb(62, 74, 206);
+            font-weight:600 !important;
+        }
+        .rating-registered{
+            margin-top:7%;
+            color:rgb(60, 63, 95);
+            font-size: 85%;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .comment-text{
+            color:white;
+        }
+        .comment-button{
+            margin-left : 10px !important;
+            margin-top : -5px;
+        }
+        .icon-edit{
+            margin-right : 5px !important;
+        }
+
+        .comment-new{
+
+            display:block;
+            
+        }
+        .warning-message{
+            padding-top:1%;
+            padding-bottom:1%;
+        }
+        .icon{
+            margin-top:1%;
+        }
+        .comments{
+            max-height: 60%;
+        }
+        #indication{
+            color : rgb(221, 221, 221);
+            font-style:italic !important;
+            padding-top:2% !important;
+            opacity: 80%;
+            font-family:'quicksand','sans-serif'
+
+        }
+        .carte.edit {
+            cursor:crosshair;
+        }
+        .field-base{
+            font-style: italic;
+            padding-top:1%;
+            padding-bottom:2.5%;
+        }
+        .accordion{
+            padding-bottom:5%;
+        }
+        .logo{
+            max-width: 14%;
+            max-height:17%;
+            display:inline-flex;
+            padding-bottom:4.5%;
+           
+        }
+        .titre{
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items:center;
+            width:90%;
+            margin-left:auto;
+            margin-right:8%;
+            
+            
+        }
+
+        .not-connected{
+            padding-bottom:3%;
+            color:rgb(214, 107, 107);
+        }
+        .credits{
+            justify-content: left;
+            width:100%;
+            padding-left:0.5%;
+            font-size:87%;
+            
+        }
+        .search-input {
+	font-family: 'quicksand','sans-serif';
+        }
+        .search-input,
+        .leaflet-control-search {
+            max-width:400px;
+            
+        };
+        
+        
+        
+    </style>
+
+   
+ 
+</head>
+
+<body>
+   
+
+    <div class="modal add-marker-modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                    <input class="input marker-name" type="text" placeholder="Name of the place">
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="label">How does it sound ? </label>
+                <div class="rating">
+                    <div class="stars">
+                        
+                        <a href="#5" title="Donner 5 étoiles">☆  </a>
+                        <a href="#4" title="Donner 4 étoiles">☆</a>
+                        <a href="#3" title="Donner 3 étoiles">☆</a>
+                        <a href="#2" title="Donner 2 étoiles">☆</a>
+                        <a href="#1" title="Donner 1 étoile">☆</a>
+                    </div>
+                </div>
+            </div>
+            <div class="field-base">
+                Leave a comment for more indications ! 
+            </div>
+            <div class="field is-grouped">
+                <div class="control">
+                    <button tyê="button" class="button is-link add-marker">Submit</button>
+                </div>
+                <div class="control">
+                    <button class="button is-text">Cancel</button>
+                </div>
+            </div>
+            
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <div class ="modal resetPasswordModal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="field">
+                    <label class="label">Email ?</label>
+                    <div class="control">
+                        <input class="input user-email-reset-password" type="text" placeholder="Email adress">
+                    </div>
+                </div>
+                <p class="help is-danger reset-message-error hidden">This email is invalid</p>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button tyê="button" class="button is-link send-email">Send the email</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-text reset-cancel-button">Cancel</button>
+                    </div>
+                </div>
+                
+            </div>
+            <button class="modal-close is-large modal-reset-close" aria-label="close"></button>
+    </div>
+
+
+    </div>
+
+    <div class="modal user-modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="field">
+                        <label class="label">Username</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input is-success user-name" type="text" placeholder="User name" >
+                            <span class="icon is-small is-left">
+                            <i class="user icon"></i>
+                            </span>
+                            <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                            </span>
+                        </div>
+
+                </div>
+
+                <div class="field2">
+                        <label class="label">Email</label>
+                        <div class="control has-icons-left has-icons-right">
+                          <input class="input is-danger user-email" type="email" placeholder="Email adress" value="">
+                        </div>
+                        <p class="help is-danger signup-message-error hidden">This email is invalid</p>
+                      </div>
+
+                <div class="field3">
+                    <label class="label">Password ?</label>
+                    <div class="control">
+                        <input class="input user-password" type="password" placeholder="Password">
+                    </div>
+                    </div>
+
+                <div class="field4 warning-message">
+                    <div class="control">
+                        <label class="checkbox">
+                        <input type="checkbox">
+                        I promise not to intentionnally place a wrong marker in order to affect this website's relevance and take note that all new markers are being verified.
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field4 is-grouped">
+                        <div class="control">
+                          <button class="button is-link submituser">Submit</button>
+                        </div>
+                        
+                </div>
+
+                
+            </div>
+            <button class="modal-close is-large closebutton-user" aria-label="close"></button>
+    </div>
+
+
+    <div class = "modal login-modal">
+            <div class="modal-background"></div>
+            <div class = "modal-content">
+                    <div class="field">
+                            <label class="label">Username or email adress</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input is-success user-name-login" type="text" placeholder="Username or email" >
+                                <span class="icon">
+                                <i class="user icon"></i>
+                                </span>
+                            </div>
+                            
+                    </div>
+
+                    <div class="field3">
+                            <label class="label">Password ?</label>
+                            <div class="control">
+                                <input class="input user-password-login " type="password" placeholder="Password">
+                            </div>
+                    </div>
+
+                    <p class="help error-message hidden">The user name or password you entered are invalid</p>
+
+                    <div class= "button is-small password-forgotten">Password forgotten ?</div>
+
+                    <div class="field4 is-grouped">
+                            <div class="control">
+                              <button class="button is-link submitlogin">Submit</button>
+                            </div>
+                            
+                    </div>
+
+                    
+
+            </div>
+            <button class="modal-close is-large closebutton-login" aria-label="close"></button>
+
+
+
+    </div>
+
+
+
+    <div class="container">
+
+                
+        <div class = "photo-container"></div>
+            
+                
+           
+                <div class ="buttons">
+                    <a class="button is-light is-outlined is-active signup">Sign Up</a>
+                    <a class="button is-link login">Login</a> 
+                    <a class="welcome hidden"></a>
+                    <a class="button is-danger is-outlined logout hidden">Log Out</a>
+                </div> 
+            
+                <div class="titre">
+                        
+                        <h1 class='uiheader' >A World of Piano</h1>
+                        <img class = "logo" src = 'icone_path4.png'></img>
+                </div>
+
+                
+
+                <h2 class='uiheader2'> Where to play the piano around the world ? </h2>
+     
+            <div class="ui right blue very wide sidebar inverted vertical menu" >
+                    <div id = "canape" class = " sidebar-header sidebar-text"></div>
+
+            <div class = "ui accordion">
+                <div class = 'title'>
+                <i class ="dropdown icon"></i>
+                Comments
+                </div>
+
+                <div class="ui grey inverted small minimal comments">
+                        
+                        <div class="comment">
+                          <div class="content">
+                            <a class="author comment-author">Matt</a>
+                            <div class="metadata">
+                              <span class="date">Today at 5:42PM</span>
+                            </div>
+                            <div class="text comment-text">
+                              How artistic!
+                            </div>
+                            <div class="actions">
+                              <a class="reply">Reply</a>
+                            </div>
+                          </div>
+                        </div>
+                      
+                        
+                </div>
+
+                <input class=" comment-form"></input>
+                <div class="bulma button is-dark comment-button">
+                  <i class="icon edit icon-edit"></i> Add Comment
+                </div>
+                
+            </div>
+            <div class = "not-connected hidden">You must be signed in to leave a comment</div>
+            <div id = "indication">Still here ? How does it sound ? Where to find it ?</div>
+
+
+                      <div class = "rating-container sidebar-description"> Rate this piano !
+                            <div class="ui star rating large piano-rating" >
+                               
+                            </div>
+                            <div class ="rater-number"></div>
+                            <div class = "rating-registered"></div>
+                        </div>
+            </div>
+                    <div class="pusher">
+                    
+                    </div>
+                    
+            <div id="mapid" div class="carte"> 
+                
+            </div>
+
+            <div class ="ajouter un piano">
+                <h3 class='header3'>Know any place ?  </h3> 
+                
+                    <a id ="switch" a class="button yes toggle-button" >Click here to add a self-service piano</a>
+               
+                <a class = "signin hidden">Log in so you can add pianos !</a>
+                
+            </div>
+            
+            
+
+            
+
+            
+            <script src="jquery.fittext.js"></script>
+                    <script type="text/javascript">
+                    $("h1").fitText(1, { minFontSize: '25px', maxFontSize: '90px' });
+                    $("h2").fitText(2, { minFontSize: '3px', maxFontSize: '30px' });
+                    $("logo").fitText();
+                    //$("h4").fitText(1, { minFontSize: '3px', maxFontSize: '10px' });
+
+                    </script>
+                    
+                   
+
+                
+
+         <script>
+                window.onload = function () {
+
+
+                    (function( $ ){
+
+                        $.fn.fitText = function( kompressor, options ) {
+
+                        // Setup options
+                        var compressor = kompressor || 1,
+                            settings = $.extend({
+                                'minFontSize' : Number.NEGATIVE_INFINITY,
+                                'maxFontSize' : Number.POSITIVE_INFINITY
+                            }, options);
+
+                        return this.each(function(){
+
+                            // Store the object
+                            var $this = $(this);
+
+                            // Resizer() resizes items based on the object width divided by the compressor * 10
+                            var resizer = function () {
+                            $this.css('font-size', Math.max(Math.min($this.width() / (compressor*10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)));
+                            };
+
+                            // Call once to set.
+                            resizer();
+
+                            // Call on resize. Opera debounces their resize by default.
+                            $(window).on('resize.fittext orientationchange.fittext', resizer);
+
+                        });
+
+                        };
+
+                        })( jQuery );
+
+
+                    
+                    var a = 0;
+                    
+
+
+                    Parse.initialize("uW4FPlOmWyjD4qqeXFE867k7ValrkvOa5hl3phMs", "6nYyBiqUP739fvt3cN0kfhgUK1gQxc78vMVORPFJ");
+                    Parse.serverURL = "https://parseapi.back4app.com/";
+                    var Marker = Parse.Object.extend("Marker");
+                    var Comment = Parse.Object.extend("Comment");
+                    let currentMarker = undefined;
+
+                    var currentUser2 = Parse.User.current();
+                        if (currentUser2) {
+                            loggedIn();
+                            
+
+                        } else {
+                            console.log("ouais");
+                            loggedOut();
+                            
+
+                          }
+    
+                          var pianoIcon = L.icon({
+                            iconUrl: 'icone_base_3.png',
+                            
+                            
+
+                            iconSize:     [33.4, 36.77], // size of the icon
+                            shadowSize:   [50, 64], // size of the shadow
+                            iconAnchor:   [13.9,35], // point of the icon which will correspond to marker's location
+                            shadowAnchor: [12, 35],  // the same for the shadow
+                            popupAnchor:  [-3, -40] // point from which the popup should open relative to the iconAnchor
+})
+                          
+                            
+
+                    var mymap = L.map('mapid',{
+                        minZoom:2
+                        
+                    }
+                    
+                    ).setView([46.342124, 2.603033], 5);
+
+                    var tileSatellite = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                        maxZoom: 40,
+                        id: 'mapbox.satellite',
+                        accessToken: 'pk.eyJ1IjoibGFpc3NlcGF1bCIsImEiOiJjam5ocTByd2gwZjU2M3BvM3R5NndidThkIn0.DZIEmZkAfnn7s3fTWv0JHA'
+                    }).addTo(mymap);
+
+                    var tileStreets   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                            maxZoom: 18,
+                            id: 'mapbox.streets',
+                            accessToken: 'pk.eyJ1IjoibGFpc3NlcGF1bCIsImEiOiJjam5ocTByd2gwZjU2M3BvM3R5NndidThkIn0.DZIEmZkAfnn7s3fTWv0JHA'
+                        })
+                                
+                        	
+                        
+                        
+                     
+	
+                        
+                        
+                        mymap.addControl( new L.Control.Search({
+                            url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
+                            jsonpParam: 'json_callback',
+                            propertyName: 'display_name',
+                            propertyLoc: ['lat','lon'],
+                            marker:false,
+                            autoCollapse: true,
+                            autoType: false,
+                            minLength: 2,
+                            position:'topleft',
+                            zoom:16
+                            
+                        }) );
+
+                        
+                                                
+
+                    var baseMaps = {
+                        "Sattelite": tileSatellite,
+                        "Streets": tileStreets
+                        
+                    };
+
+                    L.control.layers(baseMaps).addTo(mymap);
+
+                            
+
+
+
+
+                    var markerleaflet;
+                    var tableau;
+                    var sidebarHeader = document.getElementsByClassName("sidebar-header")[0];
+                    $('.ui.accordion').
+                    accordion()
+                    ;
+
+                    var id =undefined;
+
+                function fillComments(markerId) {
+
+
+                    
+                    
+                    $(".not-connected").addClass("hidden");
+                    console.log('fillComments', markerId)
+                    const commentsDiv = $('.comments');
+                    var query = new Parse.Query("Comment");
+                    query.equalTo("markerId", markerId).find().then((comments) => {
+                        let commentsHtml = '';
+                        comments.forEach((c) => {
+                            const username = c.get('username')
+                            const updatedAt = c.get('updatedAt').toString().slice(0, 25)
+                            const content = c.get('content')
+                            commentsHtml += `
+                                <div class="comment">
+                                    <div class="content">
+                                        <a class="author comment-author">${username}</a>
+                                        <div class="metadata"><span class="date">${updatedAt}</span></div>
+                                        <div class="text comment-text"> ${content} </div>
+                                    </div>
+                                </div>
+                                `;
+                        });
+                        commentsDiv.empty()
+                        commentsDiv.append(commentsHtml)
+
+                    });
+                    
+                    
+                };
+
+                function createComment(markerId) {
+
+                    if (Parse.User.current()) {
+                        console.log(" co");
+                    var replyBox = document.getElementsByClassName('comment-form')[0];
+                    var commentContentValue = replyBox.value;
+                    
+
+                    var query16 = new Parse.Query("Marker");
+                    const newComment = new Comment;
+                    newComment.set("markerId", markerId);
+                    newComment.set("content",commentContentValue);
+                    newComment.set("username",Parse.User.current().get('username'));
+                    newComment.save().then(() => {
+                        replyBox.value ='';
+                        fillComments(markerId);
+                    });
+                    }
+
+                    else {
+                        console.log("pas co");
+                        $(".not-connected").removeClass("hidden");
+                    };
+                }
+
+                var query = new Parse.Query("Marker");
+                query.find().then((markers) => {
+
+                    markers.forEach(function (marker) {
+  
+                        var ratingArray = marker.get("rating");
+                        var ratingMean = undefined;
+                        var id = marker.id;
+                        var nom = marker.get('nom');
+                        var description = marker.get('description');
+                        if (!id || !nom) {
+                            return;
+                        }
+                        var popupCustom = nom + "<br></br>" +
+                        '<div id = "trousse" div class= "header13"></div><div class="bulma pompe button popup-button is-info">See more</div>';                            var customOptions =
+                            {
+                            'maxWidth': '500',
+                            'className' : 'custom'
+                            }
+                        
+                            var baise = [];
+                            console.log(baise.length)
+                        var tableau = [marker.get('lat'),marker.get('long')];
+                        var markerleaflet = L.marker(tableau, {icon:pianoIcon}).addTo(mymap);
+                            
+                            
+                        $(markerleaflet).click( function () {
+                            var popupLeaflet = L.popup()
+                                .setLatLng(tableau)
+                                .setContent(popupCustom)
+                                .openOn(mymap);
+
+                            $(".pompe").on("click", function () {
+                                console.log('CLICKED')
+                                fillComments(currentMarker.id)
+                                $('.ui.sidebar')
+                                    .sidebar({
+                                        context:$('#mapid'),
+                                        dimPage:false,
+
+                                        onHidden: function () {
+                                            var ratingRegistered2 = document.getElementsByClassName("rating-registered")[0]
+                                                ratingRegistered2.innerHTML = ''
+                                                }
+                                        
+                                    })
+                                    .sidebar('setting', 'transition', 'overlay')
+                                    .sidebar('toggle');
+                            });
+
+                            sidebarHeader.innerHTML = nom;
+                            
+                            var query15 = new Parse.Query("Marker");
+                            query15.get(id).then((m) => {
+                                console.log('MMMMM', m)
+                                currentMarker = m;
+                                ratingArray = currentMarker.get("rating");
+                            });
+                            
+                            if (ratingArray === undefined || ratingArray === null) {
+                                ratingMean = 0;
+                            } else { 
+                                const reducer = (accumulator,currentValue) => accumulator + currentValue
+                                ratingMean = ratingArray.reduce(reducer)/ratingArray.length;
+                                const raterNumber = document.getElementsByClassName("rater-number")[0];
+                                raterNumber.innerHTML = "(" + ratingArray.length + ")";
+                            };
+                            
+
+                            $('.piano-rating')
+                            .rating({
+                                initialRating: Math.round(ratingMean),
+                                maxRating: 5,
+                                onRate: function (rating) {
+                                    var currentRatingNumber = rating;
+                                    console.log(currentRatingNumber);
+                                    var queryRating = new Parse.Query("Marker");
+                                        queryRating.get(id).then((markerTrouve)=> {
+
+                                            console.log(markerTrouve);
+                                            markerTrouve.add("rating", currentRatingNumber);
+                                            markerTrouve.save();
+
+                                            $('.piano-rating').rating('disable');
+                                            
+                                            var ratingRegistered = document.getElementsByClassName("rating-registered")[0];
+                                                ratingRegistered.innerHTML = "Your rating has been registered!";
+                                                
+                                                function sample() {
+                                                    var ratingRegistered2 = document.getElementsByClassName("rating-registered")[0];
+                                                        ratingRegistered2.innerHTML = "";
+                                                }
+                                                
+                                                $(function() {
+            
+                                                        setTimeout(sample, 2500);
+                                                    
+                                                });
+                                                
+                                                
+                                            });
+                                },
+
+                                
+                            });
+
+
+                        });
+                            
+                    });
+
+                    $('.comment-button').click( function() {
+                        createComment(currentMarker.id)
+                    });
+        
+                });
+
+
+                    
+      
+                
+
+                    function addSemanticPopup (){
+
+                        
+
+                        var semanticpopup = document.getElementById('semanticbloc');
+                        console.log("popup trouvé");
+                        var classBefore = semanticpopup.getAttribute('class');
+                        if (classBefore.includes('hidden')){
+                            var classAfter = classBefore.substring(
+                            0,
+                            classBefore.indexOf('hidden')
+                            );
+                            semanticpopup.setAttribute('class', classAfter);
+                        } else {
+                            var classAfter = classBefore + ' hidden';
+                            semanticpopup.setAttribute('class', classAfter);
+                        }
+                        console.log('okay');
+                       
+                
+                    }
+                      
+    
+                        
+                        
+                    
+                
+
+
+                    var lastClickedCoordinates = undefined;
+
+                    function addMarker() {
+                        console.log('SUBMIT')
+                        var markerNameElement = document.getElementsByClassName('marker-name')[0];
+                        var markerName = markerNameElement.value;
+                        markerNameElement.value="";
+                        console.log(markerName)
+
+                        var tableaubyclick = [lastClickedCoordinates.lat,lastClickedCoordinates.lng]
+                        
+                        
+                        var markerCreatedByClick = new Marker;
+                        markerCreatedByClick.set("nom", markerName);
+                        markerCreatedByClick.set("lat", lastClickedCoordinates.lat);
+                        markerCreatedByClick.set("long", lastClickedCoordinates.lng);
+                        markerCreatedByClick.save()
+                        .then((markerCreatedByClickCreated) => {
+                            console.log('ok')
+
+                            var popupCustom2 = markerCreatedByClickCreated.get('nom') + "<br></br>" +
+                        '<div id = "trousse" div class= "header13" style = text-align:center></div> <br>  <div class ="message-base" style = font-style:italic font-size:5px>Refresh for more options!</div>';                            var customOptions =
+                            {
+                            'maxWidth': '500',
+                            'className' : 'custom'
+                            }
+                        
+                            var markerleafletbyclick = L.marker(tableaubyclick, {icon:pianoIcon}).addTo(mymap);
+                            markerleafletbyclick.bindPopup(popupCustom2);
+                           
+
+                       
+                        
+                            closeModal()
+                            editmap()
+                            
+                        
+                        
+                        
+                            
+                            
+                        },
+                        (error) => {console.error(error)
+                        });
+
+                    }
+
+                    function closeModal() {
+                        console.log('3')
+                        var modal = document.getElementsByClassName('add-marker-modal')[0];
+                        var classBefore = modal.getAttribute('class');
+                        var classAfter = classBefore.substring(
+                            0,
+                            classBefore.indexOf('is-active')
+                        );
+                        modal.setAttribute('class', classAfter);
+                    }
+                    var modalCloseButton = document.getElementsByClassName('modal-close')[0];
+                    modalCloseButton.addEventListener('click', closeModal)
+                    var modalCancelButton = document.getElementsByClassName('is-text')[0];
+                    modalCancelButton.addEventListener('click', closeModal)
+
+                    
+                    
+                function editmap (){
+
+                    
+                        var editbutton = document.getElementById('switch');
+                        console.log('yessai');
+                        var classBefore = editbutton.getAttribute('class');
+                        var mapElement = document.getElementsByClassName('carte')[0];
+                        var mapClass = mapElement.getAttribute('class');
+                        if (classBefore.includes('activated')){
+                            var classAfter = classBefore.substring(
+                            0,
+                            classBefore.indexOf('activated')
+                            );
+                            editbutton.setAttribute('class', classAfter);
+                            var mapClassStandard = mapClass.substring(
+                            0,
+                            mapClass.indexOf('edit')
+                            );
+                            mapElement.setAttribute('class', mapClassStandard);
+
+                        } else {
+                            var classAfter = classBefore + ' activated';
+                            editbutton.setAttribute('class', classAfter);
+                            
+                            var mapClassEdit = mapClass + ' edit';
+                                mapElement.setAttribute('class', mapClassEdit);
+                                console.log('ALLEZ ');
+                        };
+
+
+                        
+                        
+
+
+                }
+                var editbutton = document.getElementById('switch');
+                    editbutton.addEventListener('click', editmap);
+
+            
+
+                    function openModal(e) {
+
+                        var editbutton = document.getElementById('switch');
+                        console.log('yessai');
+                        var classBefore = editbutton.getAttribute('class');
+                        if (!classBefore.includes('activated')){
+                            return
+                        }
+
+
+                        lastClickedCoordinates = e.latlng;
+                        var modal = document.getElementsByClassName('add-marker-modal')[0];
+                        var classBefore = modal.getAttribute('class');
+                        var classAfter = classBefore + ' is-active';
+                        modal.setAttribute('class', classAfter);
+
+                        var addMarkerButton = document.getElementsByClassName('add-marker')[0];
+                        addMarkerButton.addEventListener('click', addMarker);
+                       
+                    }
+
+                    mymap.on('click', openModal);
+
+                    function openModalUser () {
+
+            
+                        var modal = document.getElementsByClassName('user-modal')[0];
+                        var classBefore = modal.getAttribute('class');
+                        var classAfter = classBefore + ' is-active';
+                        modal.setAttribute('class', classAfter);
+
+                        var addUserButton = document.getElementsByClassName('submituser')[0];
+                        addUserButton.addEventListener('click', addUser);
+
+                       
+
+                        
+                       
+                    }
+
+                    var addModalUser = document.getElementsByClassName('signup')[0];
+                        addModalUser.addEventListener('click', openModalUser);
+
+
+
+
+
+                    function closeModalUser() {
+                        console.log('3')
+                        var modal = document.getElementsByClassName('user-modal')[0];
+                        var classBefore = modal.getAttribute('class');
+                        var classAfter = classBefore.substring(
+                            0,
+                            classBefore.indexOf('is-active')
+                        );
+                        modal.setAttribute('class', classAfter);
+                        console.log('ça marche');
+                        var errorMessage = document.getElementsByClassName('signup-message-error')[0];
+                        var classBefore48 = errorMessage.getAttribute('class');
+                        var classAfter48 = classBefore48 + ' hidden';
+                            errorMessage.setAttribute('class', classAfter48);
+                    }
+
+                    var modalUserCloseButton = document.getElementsByClassName('closebutton-user')[0];
+                    modalUserCloseButton.addEventListener('click', closeModalUser);
+                    
+                    
+                    
+
+
+                    function addUser() {
+                        console.log('USER')
+                        var userNameElement = document.getElementsByClassName('user-name')[0];
+                        var userName = userNameElement.value;
+                        userNameElement.value="";
+                        console.log(userName)
+
+                        var userEmailElement = document.getElementsByClassName('user-email')[0];
+                        var userEmail = userEmailElement.value;
+                        userEmailElement.value="";
+                        console.log(userEmail)
+
+                        var userPasswordElement = document.getElementsByClassName('user-password')[0];
+                        var userPassword = userPasswordElement.value;
+                        userPasswordElement.value="";
+                        console.log(userPassword)
+
+                        
+                        var user = new Parse.User();
+                        user.set("username", userName);
+                        user.set("password", userPassword);
+                        user.set("email", userEmail);
+
+
+                        user.signUp().then((loggedin) => {
+
+                                console.log('User created successful with name: ' + user.get("username") + ' and email: ' + user.get("email"));
+                                closeModalUser();
+                            }, (error) => {
+
+                                console.log("failed")
+                                var errorMessage = document.getElementsByClassName('signup-message-error')[0];
+                                    var classBefore48 = errorMessage.getAttribute('class');
+                                    var classAfter48 = classBefore48 - 'hidden' + ' help' + 'is-danger' + ' signup-message-error';
+                                        errorMessage.setAttribute('class', classAfter48);
+                                        errorMessage.innerHTML = error.message;
+                                console.log("Error: " + error.code + " " + error.message);
+                            }
+                         
+                        );
+                        
+
+                    }
+
+                    var userEmail2 = undefined;
+
+                    function openModalResetPassword () {
+
+                        closeModalLogin();
+                        var modalReset = document.getElementsByClassName('resetPasswordModal')[0];
+                        console.log(modalReset)
+                        var classBefore = modalReset.getAttribute('class');
+                        var classAfter = classBefore + ' is-active';
+                        modalReset.setAttribute('class', classAfter);
+                        var emailBox = document.getElementsByClassName('user-email-reset-password')[0];
+                        userEmail2 = emailBox.value;
+                        emailBox.value ="";
+                        console.log(userEmail2);
+                        
+                    }
+                    var addModalResetPassword = document.getElementsByClassName('password-forgotten')[0];
+                    addModalResetPassword.addEventListener('click', openModalResetPassword);
+
+                    function closeModalReset() {
+                        console.log('3')
+                        var modal = document.getElementsByClassName('resetPasswordModal')[0];
+                        var classBefore = modal.getAttribute('class');
+                        var classAfter = classBefore.substring(
+                            0,
+                            classBefore.indexOf('is-active')
+                        );
+                        modal.setAttribute('class', classAfter);
+
+                        var errorMessage = document.getElementsByClassName('reset-message-error')[0];
+                            var classBefore48 = errorMessage.getAttribute('class');
+                            var classAfter48 = classBefore48 + ' hidden';
+                                 errorMessage.setAttribute('class', classAfter48);
+                                errorMessage.innerHTML = error.message;
+                    }
+                    var modalCloseButton = document.getElementsByClassName('reset-cancel-button')[0];
+                    modalCloseButton.addEventListener('click', closeModalReset);
+                    var modalCancelButton = document.getElementsByClassName('modal-reset-close')[0];
+                    modalCancelButton.addEventListener('click', closeModalReset);
+
+                    function resetPassword() {
+
+                        console.log(userEmail2);
+
+                        Parse.User.requestPasswordReset(userEmail2)
+                        .then(() => {
+                          console.log("password reseté");
+                          closeModalReset();
+                        }).catch((error) => {
+                            var errorMessage = document.getElementsByClassName('reset-message-error')[0];
+                            var classBefore48 = errorMessage.getAttribute('class');
+                            var classAfter48 = classBefore48 - 'hidden' + ' help' + 'is-danger' + ' reset-message-error';
+                                 errorMessage.setAttribute('class', classAfter48);
+                                errorMessage.innerHTML = "Invalid email adress";
+                                
+                            console.log("password pas reseté");
+                        });
+                        
+                    }
+                    var sendEmailButton = document.getElementsByClassName('send-email')[0];
+                        sendEmailButton.addEventListener('click', resetPassword);
+
+                    
+
+                  function logOut(){
+
+                        Parse.User.logOut();
+                        loggedOut();
+                        console.log("logged out man");
+
+
+                  }
+                  var logoutButton = document.getElementsByClassName('logout')[0];
+                    logoutButton.addEventListener('click', logOut);
+
+                    function loggedOut () {
+
+
+                        var showbuttonsignup = document.getElementsByClassName('signup')[0];
+                        var classBefore = showbuttonsignup.getAttribute('class');
+                        var classAfter = classBefore - ' hidden'+' button' + ' is-light' + ' is-outlined' + ' is-active' + ' signup';
+                            showbuttonsignup.setAttribute('class', classAfter);
+                            console.log("bouton signup remis");
+
+                        var showbuttonlogin = document.getElementsByClassName('login')[0];
+                        var classBefore2 = showbuttonlogin.getAttribute('class');
+                        var classAfter2 = classBefore2 - ' hidden' + ' button' + ' is-link' + ' login';
+                            showbuttonlogin.setAttribute('class', classAfter2);
+                            console.log("bouton login remis")
+
+                        var hideWelcomeButton = document.getElementsByClassName('welcome')[0];
+                        var classBefore3 = hideWelcomeButton.getAttribute('class');
+                        var classAfter3 = classBefore3 + ' hidden';
+                            hideWelcomeButton.setAttribute('class', classAfter3);
+                            console.log('bouton welcome caché');
+
+                        var hideLogoutButton = document.getElementsByClassName('logout')[0];
+                        var classBefore4 = hideLogoutButton.getAttribute('class');
+                        var classAfter4 = classBefore4 + ' hidden';
+                            hideLogoutButton.setAttribute('class', classAfter4);
+
+                        $(".toggle-button").addClass('hidden');
+                        /*var hideswitch = document.getElementsByClassName('toggle-button')[0];
+                        var classBefore47 = hideswitch.getAttribute('class');
+                        var classAfter47 = classBefore47 + ' hidden';
+                            hideswitch.setAttribute('class', classAfter47);
+                            console.log('bouton switch caché');*/
+
+                        var showSignIn = document.getElementsByClassName('signin')[0];
+                        var classBefore48 = showSignIn.getAttribute('class');
+                        var classAfter48 = classBefore48 - ' hidden' + ' signin';
+                            showSignIn.setAttribute('class', classAfter48);
+                            console.log('bouton signin mis');
+
+
+                    }
+
+
+
+                  
+
+                function login() {
+
+                        
+
+                        var userNameLogElement = document.getElementsByClassName('user-name-login')[0];
+                        var userNameLog = userNameLogElement.value;
+                        userNameLogElement.value="";
+                        
+                        console.log('jai le nom');
+
+                        var userPasswordLogElement = document.getElementsByClassName('user-password-login')[0];
+                        var userPasswordLog = userPasswordLogElement.value;
+                        userPasswordLogElement.value="";
+
+                        
+                        console.log(userPasswordLog);
+
+
+                    Parse.User.logIn(userNameLog, userPasswordLog)
+                        .then((logintry) => { 
+                            loggedIn(),
+                             closeModalLogin()
+                                    
+                        }, (error) => { console.log("Echec de login")
+                                var errorMessage = document.getElementsByClassName('error-message')[0];
+                                var classBefore48 = errorMessage.getAttribute('class');
+                                var classAfter48 = classBefore48 - ' hidden' + ' help' + ' error-message';
+                                    errorMessage.setAttribute('class', classAfter48);
+                            }
+                        );
+
+                            
+
+
+                        
+                        
+                }
+
+                    var loginButton = document.getElementsByClassName('submitlogin')[0];
+                    loginButton.addEventListener('click', login);
+
+                    function loggedIn () {
+
+
+                        console.log('jsuis dans loggedin')
+
+                        
+                        var hidebuttonsignup = document.getElementsByClassName('signup')[0];
+                        var classBefore = hidebuttonsignup.getAttribute('class');
+                        var classAfter = classBefore + ' hidden';
+                            hidebuttonsignup.setAttribute('class', classAfter);
+                            console.log("bouton signup caché");
+
+                        var hidebuttonlogin = document.getElementsByClassName('login')[0];
+                        var classBefore2 = hidebuttonlogin.getAttribute('class');
+                        var classAfter2 = classBefore2 + ' hidden';
+                            hidebuttonlogin.setAttribute('class', classAfter2);
+                            console.log(loggedIn)
+
+                        var currentUser = Parse.User.current();
+                        var currentUserName = currentUser.get("username");
+                        console.log(currentUserName);
+
+                        var showWelcomeButton = document.getElementsByClassName('welcome')[0];
+                        var classBefore3 = showWelcomeButton.getAttribute('class');
+                        var classAfter3 = classBefore3 - ' hidden' + ' button' + ' is-success' + ' welcome';
+                            showWelcomeButton.setAttribute('class', classAfter3);
+                            showWelcomeButton.innerHTML = "Welcome " + currentUserName + " !";
+                            console.log('prêt à montrer le welcomebutton');
+
+                        var showWelcomeButton = document.getElementsByClassName('logout')[0];
+                        var classBefore4 = showWelcomeButton.getAttribute('class');
+                        var classAfter4 = classBefore4 - ' hidden' + ' button' + ' is-danger' + ' logout';
+                            showWelcomeButton.setAttribute('class', classAfter4);
+
+                        var showswitch = document.getElementsByClassName('toggle-button')[0];
+                        var classBefore47 = showswitch.getAttribute('class');
+                        var classAfter47 = classBefore47 - ' hidden' + ' button' + ' toggle-button';
+                            showswitch.setAttribute('class', classAfter47);
+                            console.log('bouton switch caché');
+
+                        var hideSignIn = document.getElementsByClassName('signin')[0];
+                        var classBefore48 = hideSignIn.getAttribute('class');
+                        var classAfter48 = classBefore48 + ' hidden';
+                            hideSignIn.setAttribute('class', classAfter48);
+                            console.log('bouton signin enlevé');
+                            
+                        
+
+                    };
+
+                    
+
+
+
+
+
+
+                    function openModalLogin () {
+
+            
+                        var modal = document.getElementsByClassName('login-modal')[0];
+                        var classBefore = modal.getAttribute('class');
+                        var classAfter = classBefore + ' is-active';
+                        modal.setAttribute('class', classAfter);
+
+                        var addUserButton = document.getElementsByClassName('submitlogin')[0];
+                        addUserButton.addEventListener('click', login);
+                    
+                    }
+
+                    var openLoginModal = document.getElementsByClassName('login')[0];
+                        openLoginModal.addEventListener('click', openModalLogin);
+
+
+                    function closeModalLogin() {
+                    console.log('3')
+                    var modal = document.getElementsByClassName('login-modal')[0];
+                    var classBefore = modal.getAttribute('class');
+                    var classAfter = classBefore.substring(
+                        0,
+                        classBefore.indexOf('is-active')
+                        
+                    );
+                    modal.setAttribute('class', classAfter);
+
+                    var errorMessage = document.getElementsByClassName('error-message')[0];
+                                var classBefore48 = errorMessage.getAttribute('class');
+                                var classAfter48 = classBefore48 + ' hidden';
+                                    errorMessage.setAttribute('class', classAfter48);
+
+                }
+
+                var closeLoginModal = document.getElementsByClassName('closebutton-login')[0];
+                    closeLoginModal.addEventListener('click', closeModalLogin);
+
+
+
+
+
+                    
+
+                    function handleParseError(err) {
+                        switch (err.code) {
+                            case Parse.Error.INVALID_SESSION_TOKEN:
+                            Parse.User.logOut();
+                             // If web browser, render a log in screen
+                             // If Express.js, redirect the user to the log in route
+                            break;
+
+                             // Other Parse API errors that you want to explicitly handle
+                        }
+                        }
+
+                        // For each API request, call the global error handler
+                        query.find().then(function() {
+                        
+                        }, function(err) {
+                        handleParseError(err);
+                        });
+
+                    
+        
+
+                    
+
+                   
+                        
+
+        }
+
+
+            </script>
+
+
+        </div>
+
+
+
+    </div>
+
+<script>
+
+    $(document).ready(function(pret){
+        console.log("ready!");
+        
+        var markers =  document.getElementsByClassName("leaflet-marker-icon");
+        console.log(markers.length)
+
+    })
+</script>
+
+
+
+<p class="credits"> © Website developped by Paul & Raphaël Fabre</p>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>
