@@ -919,6 +919,8 @@
                             
                             if ((ratingArray === undefined) || (ratingArray.length == 0)) {
                                 ratingMean = 0;
+				  var raterNumber = document.getElementsByClassName("rater-number")[0];
+                                raterNumber.innerHTML = "(0)";
                             } else { 
                                 var reducer = (accumulator,currentValue) => accumulator + currentValue
                                 ratingMean = ratingArray.reduce(reducer)/ratingArray.length;
