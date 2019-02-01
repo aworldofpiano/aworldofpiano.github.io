@@ -920,9 +920,9 @@
                             if ((ratingArray === undefined) || (ratingArray.length = 0)) {
                                 ratingMean = 0;
                             } else { 
-                                const reducer = (accumulator,currentValue) => accumulator + currentValue
+                                var reducer = (accumulator,currentValue) => accumulator + currentValue
                                 ratingMean = ratingArray.reduce(reducer)/ratingArray.length;
-                                const raterNumber = document.getElementsByClassName("rater-number")[0];
+                                var raterNumber = document.getElementsByClassName("rater-number")[0];
                                 raterNumber.innerHTML = "(" + ratingArray.length + ")";
                             };
                             
