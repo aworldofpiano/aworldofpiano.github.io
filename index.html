@@ -917,7 +917,7 @@
                                 ratingArray = currentMarker.get("rating");
                             });
                             
-                            if (ratingArray === undefined || ratingArray === null) {
+                            if (ratingArray === undefined || ratingArray.length = 0) {
                                 ratingMean = 0;
                             } else { 
                                 const reducer = (accumulator,currentValue) => accumulator + currentValue
