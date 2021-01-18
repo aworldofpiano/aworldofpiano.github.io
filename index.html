@@ -9,7 +9,19 @@
 
     <meta charset='utf-8' />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-    <title>A world of piano</title>
+    <title>A world of piano : The first collaborative piano map</title>
+
+    <meta property ="description" content = "Where to play the piano around the world ?"/>
+    <meta property="og:url" content = "http://www.aworldofpiano.com/" />
+	<meta property="og:title"   content="A World of piano" />
+	<meta property="og:type"  content="article" />
+    <meta property="og:description" content="Where to play the piano around the world ?" />
+	<meta property="og:image" content ="https://raw.githubusercontent.com/aworldofpiano/aworldofpiano.github.io/master/image_tag.jpg" />
+	<meta name="twitter:card" content="summary"></meta>
+
+
+
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
         crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
@@ -18,7 +30,7 @@
     <script src="leaflet-search.js"></script>
     <link rel="stylesheet" href="style.css" />
     
-	<meta name= "robots" content= "noindex">
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
@@ -27,11 +39,19 @@
     <link href="https://fonts.googleapis.com/css?family=Neucha|Raleway|Yrsa|Zilla+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed|Lora|Open+Sans+Condensed:300|PT+Serif|Thasadith" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet"> 
+    
+    <script src="regenerator-master\packages\regenerator-runtime\runtime.js"></script>
+    
+    <script src="https://unpkg.com/parse@2.2.0/dist/parse.min.js"></script>
 
-    <script src="https://unpkg.com/parse/dist/parse.min.js"></script>
+    <meta name="google-site-verification" content="TGb0aqN2iEe7pyOjlWgRIpX2QTFP3MgYNKuXMrOaJh4" />
+    <meta name="msvalidate.01" content="1D5133200EB5624259838DB82F4FFF0D" />
+	
+	
 
  
-
+    
         
     <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -40,31 +60,23 @@
     <script src="semantic/semantic.min.js"></script>
     <script src="jquery_projet_piano.js"></script>
 
-    
-
-    <meta name="google-site-verification" content="7dl6q2q6OMb6e-vk33fZ6AdHbE2qwgGQZwdqXplvZdk" />
-<meta name="msvalidate.01" content="1D5133200EB5624259838DB82F4FFF0D" />
-    
-	
-	<meta property="og:url" content = "https://aworldofpiano.github.io/" />
-	<meta property="og:title"   content="A World of piano" />
-	<meta property="og:type"  content="article" />
-	<meta property="og:description" content="Where to play the piano around the world ?" />
-	<meta property="og:image" content ="https://raw.githubusercontent.com/aworldofpiano/aworldofpiano.github.io/master/image_tag.jpg" />
-	<meta name="twitter:card" content="summary"></meta>
-	
-	
     <style>
 
         body {
-            background-color: rgb(159, 185, 194);
+             background-color: rgb(186, 199, 212); 
             font-family: 'Quicksand', sans-serif;
-            
-            
         }
-
+        .yep {
+            
+            text-align: center;
+            width:90%;
+            padding-bottom : 3%;
+            padding-top : 3%;
+            margin-left:auto;
+            margin-right:auto;
+        };
         .modal {
-            z-index: 10000
+            z-index: 10000;
         }
 
         .modal-content {
@@ -86,7 +98,7 @@
         .uiheader2 {
            
             font-family: 'QUicksand', 'sans-serif';
-            font-size: 30px;
+            font-size: 100px;
             margin-bottom:2% !important;
             font-weight: 300;
             display: block;
@@ -105,6 +117,7 @@
             margin-left: auto;
             margin-right: auto;
             border: solid 5px rgb(17, 12, 54);
+            z-index:1;
             
         }
 
@@ -169,7 +182,6 @@
         }
         .login{
             margin-right:0% !important;
-		background-color: rgb(12,93,114) !important;
         }
         .password-forgotten{margin-bottom:3%; margin-top:3%}
         .yes{margin-left:45%;
@@ -223,8 +235,6 @@
         .popup-button{
             display:block;
             margin:auto;
-		background-color: rgb(12,93,114) !important;
-		color: rgb(238, 243, 245) !important;
         }
         .bulma-card{
             max-width: 20%;
@@ -260,7 +270,7 @@
             color:rgb(228, 222, 236) !important;
         }
         .sidebar .title{
-            color: rgb(12,93,114) !important;
+            color:rgb(140, 135, 170) !important;
             font-size:larger !important;
         }
 
@@ -367,12 +377,33 @@
             padding-bottom:3%;
             color:rgb(214, 107, 107);
         }
+        .metadata {
+            padding-top:1%;
+            padding-left : 1%;
+            padding-right: 1% ;
+            display: flex;
+            flex-direction: row;
+            justify-content:space-between;
+            align-items: center;
+            max-width:99%; 
+            margin-right:auto;
+            margin-left:auto; 
+            
+
+        }
         .credits{
             justify-content: left;
             width:100%;
             padding-left:0.5%;
             font-size:87%;
             
+            
+        }
+        .contact {
+            text-align: left;
+            font-size : 87%;
+            display:inline-flex;
+            white-space:nowrap;
         }
         .search-input {
 	font-family: 'quicksand','sans-serif';
@@ -381,10 +412,102 @@
         .leaflet-control-search {
             max-width:400px;
             
-        };
+        }
+
+        .gallery {
+            width:90%;
+            margin-right:auto;
+            margin-left:auto;
+            display: flex;
+            flex-wrap:wrap;
+            flex-direction: row;
+            justify-content:start;
+            padding-bottom : 5%;
+        }
+
+
+        .photo {
+            background-position: center;
+            background-size: cover;
+
+            padding:0.5%;
+        }
+        @media (min-width: 992px) and (max-width: 1280px) {
+            .gallery {
+                width: 980px;
+            }
+        }
+        @media (min-width: 992px) {
+            .photo {
+                width: 320px;
+                height:300px;
+            }
+        }
+        @media (min-width: 640px) and (max-width: 991px) {
+            .gallery {
+                width: 530px;
+            }
+            .photo {
+                width: 260px;
+                height:240px;
+            }
+        }
+        @media (max-width: 639px) {
+            .gallery {
+                justify-content: center;
+            }
+            .photo {
+                width:400px;
+                height:370px;
+            }
+        }
+        .photocontainer {
+            margin-right : 5px;
+            margin-top : 5px;
+            position: relative;
+            display: inline-block;
+        }
+        .phototitle {
+            font-size : 180%;
+            font-weight : 700;
+            font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+            text-align: left;
+            margin-right:auto;
+            margin-left:5%;
+            padding-bottom:6%;
+            padding-top : 4%;
+            width:100%;
+        }
+
+        .photocontainer .photo-title-container {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            opacity: 0;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            color: #fff;
+            width: 100%;
+            height: 100%;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .photocontainer:hover .photo-title-container {
+            opacity: 1;
+        }
+        .restricted-checkbox{
+            padding-bottom: 1.5%;
+            padding-top: 1.5%;
+        }
         
-        
-        
+        .update{
+            color : rgb(116, 116, 116);
+            padding-top:0% !important;
+            opacity: 90%;
+            font-family:'quicksand','sans-serif'
+        }
     </style>
 
    
@@ -393,6 +516,16 @@
 
 <body>
    
+        <div class = "modal photo-modal">
+
+                <div class="modal-background modal-background-photo"></div>
+                <div class = "image-content">
+                    <img class = "image" src = "https://www.gares-sncf.com/sites/default/files/styles/page_header/public/field_img_principal/2016-05/piano_rennes_gare.jpg?itok=w1SLXrcG">
+                </div>
+                <button class="modal-close is-large photo-modal-close" ></button>
+
+
+        </div>
 
     <div class="modal add-marker-modal">
         <div class="modal-background"></div>
@@ -405,20 +538,15 @@
             </div>
             
             <div class="field">
-                <label class="label">How does it sound ? </label>
-                <div class="rating">
-                    <div class="stars">
-                        
-                        <a href="#5" title="Donner 5 étoiles">☆  </a>
-                        <a href="#4" title="Donner 4 étoiles">☆</a>
-                        <a href="#3" title="Donner 3 étoiles">☆</a>
-                        <a href="#2" title="Donner 2 étoiles">☆</a>
-                        <a href="#1" title="Donner 1 étoile">☆</a>
+                    <div class="restricted-checkbox">
+                            <input class ="ui checkbox checkbox2" type="checkbox" name="example">
+                            <label>The access to this piano is restricted (Must have a plane ticket, being a customer etc.)</label>
                     </div>
-                </div>
+                <label class="label">How does it sound ? </label>
+                
             </div>
             <div class="field-base">
-                Leave a comment for more indications ! 
+                Leave a comment and a rating for more indications ! 
             </div>
             <div class="field is-grouped">
                 <div class="control">
@@ -430,7 +558,7 @@
             </div>
             
         </div>
-        <button class="modal-close is-large" aria-label="close"></button>
+        <button class="modal-close is-large add-marker-close" aria-label="close"></button>
     </div>
 
     <div class ="modal resetPasswordModal">
@@ -564,8 +692,8 @@
                 
            
                 <div class ="buttons">
-                    <a class="button is-light is-outlined is-active signup">Sign Up</a>
-                    <a class="button login">Login</a> 
+                    <a class="button is-primary signup">Sign Up</a>
+                    <a class="button is-link login">Login</a> 
                     <a class="welcome hidden"></a>
                     <a class="button is-danger is-outlined logout hidden">Log Out</a>
                 </div> 
@@ -574,11 +702,13 @@
                         
                         <h1 class='uiheader' >A World of Piano</h1>
                         <img class = "logo" src = 'icone_path4.png'></img>
+                        
                 </div>
 
                 
 
                 <h2 class='uiheader2'> Where to play the piano around the world ? </h2>
+                <p class ="yep">This website aims to reference free-access pianos around the world. Most of them are located in railway stations, malls, but you can find some in unexpected places : parks, universities, or just on the street ! By geolocating them, you can help piano players or anyone interested in hearing music find them and enjoy !</p>
      
             <div class="ui right blue very wide sidebar inverted vertical menu" >
                     <div id = "canape" class = " sidebar-header sidebar-text"></div>
@@ -616,7 +746,9 @@
                 
             </div>
             <div class = "not-connected hidden">You must be signed in to leave a comment</div>
+            
             <div id = "indication">Still here ? How does it sound ? Where to find it ?</div>
+            
 
 
                       <div class = "rating-container sidebar-description"> Rate this piano !
@@ -625,12 +757,14 @@
                             </div>
                             <div class ="rater-number"></div>
                             <div class = "rating-registered"></div>
+                            <div class="update"> </div>
                         </div>
+                        
             </div>
                     <div class="pusher">
                     
                     </div>
-                    
+            
             <div id="mapid" div class="carte"> 
                 
             </div>
@@ -638,9 +772,15 @@
             <div class ="ajouter un piano">
                 <h3 class='header3'>Know any place ?  </h3> 
                 
-                    <a id ="switch" a class="button yes toggle-button" >Click here to add a self-service piano</a>
+                    <a id ="switch" a class="button yes toggle-button" >Click here to add a free-access piano</a>
                
                 <a class = "signin hidden">Log in so you can add pianos !</a>
+                
+            </div>
+
+            <div class = "phototitle">Image gallery</div>
+            <div class = "gallery"> 
+                
                 
             </div>
             
@@ -653,6 +793,7 @@
                     <script type="text/javascript">
                     $("h1").fitText(1, { minFontSize: '25px', maxFontSize: '90px' });
                     $("h2").fitText(2, { minFontSize: '3px', maxFontSize: '30px' });
+                    $(".yep").fitText(3, { minFontSize:'2px', maxFontSize: '18px'});
                     $("logo").fitText();
                     //$("h4").fitText(1, { minFontSize: '3px', maxFontSize: '10px' });
 
@@ -664,7 +805,7 @@
 
          <script>
                 window.onload = function () {
-
+                    
 
                     (function( $ ){
 
@@ -703,12 +844,13 @@
                     
                     var a = 0;
                     
-
+                    
 
                     Parse.initialize("uW4FPlOmWyjD4qqeXFE867k7ValrkvOa5hl3phMs", "6nYyBiqUP739fvt3cN0kfhgUK1gQxc78vMVORPFJ");
                     Parse.serverURL = "https://parseapi.back4app.com/";
                     var Marker = Parse.Object.extend("Marker");
                     var Comment = Parse.Object.extend("Comment");
+                    var Image = Parse.Object.extend("Image");
                     let currentMarker = undefined;
 
                     var currentUser2 = Parse.User.current();
@@ -742,31 +884,28 @@
                         
                     }
                     
-                    ).setView([46.342124, 2.603033], 5);
+                    ).setView([46.342124, 2.603033], 2);
 
-                    var tileSatellite = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                    
+                    var tileStreets   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                            maxZoom: 40,
+                            id: 'mapbox.streets',
+                            accessToken: 'pk.eyJ1IjoibGFpc3NlcGF1bCIsImEiOiJjam5ocTByd2gwZjU2M3BvM3R5NndidThkIn0.DZIEmZkAfnn7s3fTWv0JHA'
+                        }).addTo(mymap);
+
+                        var tileSatellite = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
                         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                         maxZoom: 40,
                         id: 'mapbox.satellite',
                         accessToken: 'pk.eyJ1IjoibGFpc3NlcGF1bCIsImEiOiJjam5ocTByd2gwZjU2M3BvM3R5NndidThkIn0.DZIEmZkAfnn7s3fTWv0JHA'
-                    }).addTo(mymap);
+                    });
 
-                    var tileStreets   = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                            maxZoom: 18,
-                            id: 'mapbox.streets',
-                            accessToken: 'pk.eyJ1IjoibGFpc3NlcGF1bCIsImEiOiJjam5ocTByd2gwZjU2M3BvM3R5NndidThkIn0.DZIEmZkAfnn7s3fTWv0JHA'
-                        })
                                 
                         	
-                        
-                        
-                     
-	
-                        
-                        
+                
                         mymap.addControl( new L.Control.Search({
-                            url: 'https://nominatim.openstreetmap.org/search?format=json&q={s}',
+                            url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
                             jsonpParam: 'json_callback',
                             propertyName: 'display_name',
                             propertyLoc: ['lat','lon'],
@@ -775,8 +914,8 @@
                             autoType: false,
                             minLength: 2,
                             position:'topleft',
-                            zoom:16
-                            
+                            zoom:12,
+                            marker: L.circleMarker([0,0],{radius:30})
                         }) );
 
                         
@@ -790,9 +929,77 @@
 
                     L.control.layers(baseMaps).addTo(mymap);
 
+                  
+
+
+                    function addImage (){
+
+                            console.log("addImage");
+
+                            const imageDiv = $('.gallery');
+                            var query = new Parse.Query("Image");
+                        query.find().then((image) => {
+                            let imageHtml = '';
+                            image.forEach((c) => {
+                                const url = c.get('url')
+                                const titre = c.get('titre')
+                                
+                                imageHtml += `
+                                <div class = "photocontainer" >
+                                <div class="photo-title-container" >
+                                        <p class = "photo-title">${titre}</p>
+                                </div>
+                                   
+                                    <div class="photo" style="background-image:url('${url}');"></div>
+                                </div>
+                                `;
+                                
+                                
+                            });
+                            
+                            imageDiv.empty()
+                            imageDiv.append(imageHtml)
                             
 
+                        });
 
+
+                    };
+                    addImage();
+
+                    
+                    function displayImage () {
+                        console.log("Ouais");
+                        $(".photo-modal").addClass(" is-active");
+                        var photoContainer = jQuery(this);
+                        console.log(photoContainer);
+                        var photo = photoContainer.children(".photo");
+                        console.log(photo)
+
+                        var photoUrl = $(photo).css('background-image')
+                        photoUrl = /^url\((['"]?)(.*)\1\)$/.exec(photoUrl);
+                        photoUrl = photoUrl ? photoUrl[2] : ""; // If matched, retrieve url, otherwise ""
+                        console.log(photoUrl);
+                        
+                        $(".image").attr('src', photoUrl);
+
+                    };
+                    $('body').on( "click", ".photocontainer", displayImage);
+
+                   
+                        
+
+                        $('body').on( "click", ".photo-modal-close", function () {
+                
+                        $(".photo-modal").removeClass(" is-active");
+                       
+                        });
+
+                       
+
+                        
+
+                       
 
 
                     var markerleaflet;
@@ -803,7 +1010,7 @@
                     ;
 
                     var id =undefined;
-
+                    
                 function fillComments(markerId) {
 
 
@@ -814,10 +1021,11 @@
                     const commentsDiv = $('.comments');
                     var query = new Parse.Query("Comment");
                     query.equalTo("markerId", markerId).find().then((comments) => {
+                        
                         let commentsHtml = '';
                         comments.forEach((c) => {
                             const username = c.get('username')
-                            const updatedAt = c.get('updatedAt').toString().slice(0, 25)
+                            const updatedAt = c.get('updatedAt').toString().slice(0, 25)    
                             const content = c.get('content')
                             commentsHtml += `
                                 <div class="comment">
@@ -860,7 +1068,18 @@
                         console.log("pas co");
                         $(".not-connected").removeClass("hidden");
                     };
-                }
+                };
+
+                function linkImage (currentMarker) {
+                    var query18 = new Parse.Query("Marker");
+                    var nom = currentMarker.nom;
+                    query19 = new Parse.Query("Image");
+                    query19.equalTo("titre", nom).find().then((imageToLink) => {
+                        console.log(imageToLink)
+                    });
+                
+                };
+                
 
                 var query = new Parse.Query("Marker");
                 query.find().then((markers) => {
@@ -876,7 +1095,7 @@
                             return;
                         }
                         var popupCustom = nom + "<br></br>" +
-                        '<div id = "trousse" div class= "header13"></div><div class="bulma pompe button popup-button">See more</div>';                            var customOptions =
+                        '<div id = "trousse" div class= "header13"></div><div class="bulma pompe button popup-button is-info">See more</div>';                            var customOptions =
                             {
                             'maxWidth': '500',
                             'className' : 'custom'
@@ -918,6 +1137,10 @@
                             query15.get(id).then((m) => {
                                 console.log('MMMMM', m)
                                 currentMarker = m;
+                                var updateMessage = document.getElementsByClassName("update")[0];
+                                console.log(updateMessage);
+                                creationDate = m.get("createdAt");
+                                updateMessage.innerHTML = "Piano added on : " + creationDate.toString().slice(4,16);
                                 ratingArray = currentMarker.get("rating");
                             });
                             
@@ -982,8 +1205,9 @@
                 });
 
 
-                    
-      
+
+
+                
                 
 
                     function addSemanticPopup (){
@@ -1011,8 +1235,8 @@
     
                         
                         
-                    
-                
+                            
+                                    
 
 
                     var lastClickedCoordinates = undefined;
@@ -1026,11 +1250,14 @@
 
                         var tableaubyclick = [lastClickedCoordinates.lat,lastClickedCoordinates.lng]
                         
-                        
+                        var user13  = Parse.User.current();
+                        var currentUserName = user13.get("username");
+                        console.log(currentUserName);
                         var markerCreatedByClick = new Marker;
                         markerCreatedByClick.set("nom", markerName);
                         markerCreatedByClick.set("lat", lastClickedCoordinates.lat);
                         markerCreatedByClick.set("long", lastClickedCoordinates.lng);
+                        markerCreatedByClick.set("CreatedBy", currentUserName);
                         markerCreatedByClick.save()
                         .then((markerCreatedByClickCreated) => {
                             console.log('ok')
@@ -1062,6 +1289,14 @@
 
                     }
 
+                    function check() {
+                            document.getElementByClassName("checkbox2")[0].checked = true;
+                        }
+
+                        function uncheck() {
+                            document.getElementByClassName("checkbox2")[0].checked = false;
+                        } 
+
                     function closeModal() {
                         console.log('3')
                         var modal = document.getElementsByClassName('add-marker-modal')[0];
@@ -1071,14 +1306,26 @@
                             classBefore.indexOf('is-active')
                         );
                         modal.setAttribute('class', classAfter);
+                        if ($(".checkbox2").checked == true ) {
+                            check();
+                            console.log("checké");
+                        }
+                        else {
+                            uncheck();
+                            console.log("pas checké")
+                        };
+
+                        
                     }
-                    var modalCloseButton = document.getElementsByClassName('modal-close')[0];
+                    var modalCloseButton = document.getElementsByClassName('add-marker-close')[0];
                     modalCloseButton.addEventListener('click', closeModal)
                     var modalCancelButton = document.getElementsByClassName('is-text')[0];
                     modalCancelButton.addEventListener('click', closeModal)
 
+                    console.log($(".restricted-checkbox")); 
+
                     
-                    
+
                 function editmap (){
 
                     
@@ -1180,6 +1427,7 @@
                         var classBefore48 = errorMessage.getAttribute('class');
                         var classAfter48 = classBefore48 + ' hidden';
                             errorMessage.setAttribute('class', classAfter48);
+
                     }
 
                     var modalUserCloseButton = document.getElementsByClassName('closebutton-user')[0];
@@ -1547,8 +1795,10 @@
 </script>
 
 
-
+<div class = "metadata">
 <p class="credits"> © Website developped by Paul & Raphaël Fabre</p>
+<p class = "contact">Contact: paulfabre31@gmail.com</p>
+</div>
 
 </body>
 
